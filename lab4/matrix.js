@@ -145,7 +145,7 @@ const findPathTwo = (matrix) => {
     for (let j = 0; j < square.length; j++) {
       if (square[i][j]) {
         for (let k = 0; k < matrix.length; k++) {
-          if (matrix[i][k] && matrix[k][j] && (k !== i || k !== j)) {
+          if (matrix[i][k] && matrix[k][j] && k !== i && k !== j) {
             path.push([i, k, j]);
           }
         }
@@ -166,7 +166,7 @@ const findPathThree = (matrix) => {
         for (let k = 0; k < matrix.length; k++) {
           if (matrix[i][k]) {
             for (let l = 0; l < matrix.length; l++) {
-              if (matrix[l][j] && matrix[k][l] && (k !== j || l !== i || l !== j)) {
+              if (matrix[k][l] && matrix[l][j] && k !== i && k !== l && k !== j && l !== i && l !== j) {
                 path.push([i, k, l, j]);
               }
             }
